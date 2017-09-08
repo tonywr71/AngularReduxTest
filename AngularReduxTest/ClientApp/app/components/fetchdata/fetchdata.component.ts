@@ -13,7 +13,7 @@ import * as fromFetchData from './fetchdata.redux';
 })
 export class FetchDataComponent {
 
-    public forecasts: WeatherForecast[];
+    //public forecasts: WeatherForecast[];
     public forecasts$: Observable<WeatherForecast[]>;
     public forecastsLoaded$: Observable<boolean>;
     public hasFailed$: Observable<boolean>;
