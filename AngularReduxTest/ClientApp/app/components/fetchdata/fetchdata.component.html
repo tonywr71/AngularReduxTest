@@ -1,0 +1,27 @@
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts$" ><em>Loading...</em></p>
+
+<div (onload)="(forecasts$)?.length===0?checkIfFirstTime(0):null"></div>
+<p *ngIf="(forecasts$ | async)?.length===0" (onload)="checkIfFirstTime(0)">Its zero</p>
+
+<table class='table' *ngIf="forecasts$"  >
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Temp. (C)</th>
+            <th>Temp. (F)</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let forecast of forecasts$ | async">
+            <td>{{ forecast.dateFormatted }}</td>
+            <td>{{ forecast.temperatureC }}</td>
+            <td>{{ forecast.temperatureF }}</td>
+            <td>{{ forecast.summary }}</td>
+        </tr>
+    </tbody>
+</table>
